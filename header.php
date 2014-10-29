@@ -48,14 +48,14 @@ defined('ABSPATH') or die("No script kiddies please!");
 		<span class="icon-bar"></span><span class="icon-bar">
 		</span><span class="icon-bar"></span>
 		</button> 
-		<a class="navbar-brand" href="#">Brand</a>
+		<a class="navbar-brand" href=" <?php echo esc_url( home_url( '/' ) ); ?> "><?php wp_title(''); ?></a>
 		</div>
 
 		<!--end collapse button-->	
 		<?php 
 		  
 		 $defaults = array(
-			'theme_location'  => '',
+			'theme_location'  => 'header-menu',
 			'menu'            => '',
 			'container'       => 'div',
 			'container_class' => 'collapse navbar-collapse',

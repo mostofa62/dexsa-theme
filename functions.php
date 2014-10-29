@@ -1,6 +1,8 @@
 <?php
 defined('ABSPATH') or die("No script kiddies please!");
 
+
+/* all css and java-script */
 function dexsa_script()
 {
 wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
@@ -16,3 +18,9 @@ wp_enqueue_script( 'scripts' );
 }
 
 add_action( 'wp_enqueue_scripts', 'dexsa_script' );
+/* end all css and java-script */
+
+function register_dexsa_menu() {
+  register_nav_menu('header-menu',__( 'Header Menu' ));
+}
+add_action( 'init', 'register_dexsa_menu' );
