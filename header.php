@@ -29,10 +29,12 @@ defined('ABSPATH') or die("No script kiddies please!");
 	<!--Logo and Banner Part -->
 	<div class="row clearfix">
 		<div class="col-md-2 column">
-		Logo
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="margin:0;">
+		<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/img/114.png" width="135" height="135" alt="">
+		</a>
 		</div>
 		<div class="col-md-10 column">
-		Banner
+		<img class="img-responsive" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
 		</div>
 	</div>	
 	<!--End Logo and Banner Part-->
@@ -48,19 +50,20 @@ defined('ABSPATH') or die("No script kiddies please!");
 		<span class="icon-bar"></span><span class="icon-bar">
 		</span><span class="icon-bar"></span>
 		</button> 
-		<a class="navbar-brand" href=" <?php echo esc_url( home_url( '/' ) ); ?> "><?php wp_title(''); ?></a>
+		<a class="navbar-brand" href=" <?php echo esc_url( home_url( '/' ) ); ?> "><?php bloginfo( 'name' ); ?></a>
 		</div>
 
-		<!--end collapse button-->	
+		<!--end collapse button-->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">		
 		<?php 
-		  
+		
 		 $defaults = array(
-			'theme_location'  => 'header-menu',
+			'theme_location'  => 'primary',
 			'menu'            => '',
-			'container'       => 'div',
-			'container_class' => 'collapse navbar-collapse',
+			'container'       => '',
+			'container_class' => '',
 			'container_id'    => '',
-			'menu_class'      => 'nav navbar-nav',
+			'menu_class'      => 'nav navbar-nav navbar-left',
 			'menu_id'         => 'bs-example-navbar-collapse-1',
 			'echo'            => true,
 			'fallback_cb'     => 'wp_page_menu',
@@ -74,7 +77,11 @@ defined('ABSPATH') or die("No script kiddies please!");
 		);
 		wp_nav_menu( $defaults );
 		
-		 ?>		
+		get_search_form();
+				
+		 ?>
+        </div>
+         		 
 		</nav>
 		</div>		
 	</div>	
