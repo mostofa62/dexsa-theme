@@ -16,8 +16,8 @@ add_theme_support( 'html5', array(
 
 
 $args = array(
-	'width'         => 980,
-	'height'        => 144,
+	'width'         => 1000,
+	'height'        => 150,
 	'default-image' => get_template_directory_uri() . '/img/header.jpg',
 );
 add_theme_support( 'custom-header', $args );

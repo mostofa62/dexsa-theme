@@ -29,9 +29,13 @@ defined('ABSPATH') or die("No script kiddies please!");
 	<!--Logo and Banner Part -->
 	<div class="row clearfix">
 		<div class="col-md-2 column">
+        <!--logo-->
+        <div id="logo">
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style="margin:0;">
 		<img class="img-responsive" src="<?php echo get_template_directory_uri(); ?>/img/114.png" width="135" height="135" alt="">
 		</a>
+        </div>
+        <!--end logo-->
 		</div>
 		<div class="col-md-10 column">
 		<img class="img-responsive" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">

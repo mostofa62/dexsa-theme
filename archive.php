@@ -8,7 +8,7 @@ get_header(); ?>
     
 	<div class="row clearfix">
     
-    <div class="col-md-10 column">
+    <div class="col-md-9 column">
     
     <?php if ( have_posts() ) : ?>
     

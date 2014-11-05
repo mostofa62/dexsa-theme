@@ -14,3 +14,38 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
+/* modfied css */
+
+div#logo
+{
+	margin:8px 0 0 40px;
+}
+
+.sidebar
+{
+	border:2px solid #CCC;
+	padding:15px;
+}
+
+/* media query customize */
+
+@media (max-width: 1000px) {
+	
+div#logo
+{
+	margin:2px 0 0 40%;
+}	
+ 
+}
+
+@media (max-width: 500px) {
+
+div#logo
+{
+	margin:1px 0 0 30%;
+}	
+
+}
+
+
+/* end media query customize */
