@@ -73,17 +73,29 @@ add_filter( 'get_search_form', 'dexsa_search_form' );
 
 function dexsa_widget()
 {
+	
+require get_template_directory() . '/inc/widgets.php';
+unregister_widget('WP_Widget_Recent_Posts');
+register_widget('Dexsa_Recent_Post_widget');	
 
 register_sidebar( array(
 		'name'          => __( 'Primary Sidebar', 'dexsa' ),
-		'id'            => 'sidebar-1',
+		'id'            => 'sidebar-1',		
 		'description'   => __( 'Main sidebar that appears on the right.', 'dexsa' ),
+		'before_widget' => '<div id="%1$s" class="panel panel-primary">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<div class="panel-heading">',
+		'after_title'   => '</div>',
+	) );
+register_sidebar( array(
+		'name'          => __( 'Slider Section', 'dexsa' ),
+		'id'            => 'slider-2',
+		'description'   => __( 'Slider Under Main Menu.', 'dexsa' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
-
 
 
 }

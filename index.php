@@ -3,6 +3,14 @@ defined('ABSPATH') or die("No script kiddies please!");
 get_header();
 ?>
 <div class="container">
+    <!--slide-->
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+    
+    
+    </div>
+    </div>
+    <!--end slider-->
 	<div class="row clearfix">
 	<!--content side-->
 	<div class="col-md-9 column">
