@@ -5,8 +5,8 @@ class Dexsa_Recent_Post_widget extends WP_Widget_Recent_Posts {
 	
 
 public function __construct() {
-		parent::__construct( 'widget_dexsa_recent_posts', __( 'Dexsa Recent Posts', 'dexsa' ), array(
-			'classname'   => 'widget_dexsa_recent_posts',
+		parent::__construct( 'dexsa_recent_post_widget', __( 'Dexsa Recent Posts', 'dexsa' ), array(
+			'classname'   => 'dexsa_recent_post_widget',
 			'description' => __( 'Use Dexsa Recent Post .', 'dexsa' ),
 		) );
 }

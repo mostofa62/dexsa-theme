@@ -6,7 +6,7 @@ get_header();
     <!--slide-->
     <div class="row clearfix">
     <div class="col-md-12 column">
-    
+    <?php do_action('insert_bootstrapslider'); ?>
     
     </div>
     </div>
