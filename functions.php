@@ -33,7 +33,8 @@ add_theme_support( 'custom-background', apply_filters( 'twentyfourteen_custom_ba
 		'default-color' => 'f5f5f5',
 	) ) );
 
-	
+
+
 
 
 }
@@ -124,7 +125,7 @@ function dexsa_theme_register_required_plugins() {
         array(
             'name'               => 'twitter-bootstrap-slider', // The plugin name.
             'slug'               => 'twitter-bootstrap-slider', // The plugin slug (typically the folder name).
-            'source'             => get_template_directory() . '/vendor/twitter-bootstrap-slider.1.1.3.zip', // The plugin source.
+            'source'             => get_template_directory() . '/vendor/twitter-bootstrap-slider.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -179,3 +180,4 @@ function dexsa_theme_register_required_plugins() {
 
 
 /* end register required plugin */
+

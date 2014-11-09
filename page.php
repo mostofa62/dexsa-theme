@@ -7,15 +7,9 @@ get_header();
     
     <div class="col-md-9 column">
     <?php while ( have_posts() ) : the_post(); ?>
+    <?php get_template_part( 'content', get_post_format() ); ?>
     
-    
-	<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
-	<?php the_post_thumbnail(); ?>
-    <?php endif; ?>
-    
-	<?php the_content(); ?>
-    
-    <?php comments_template(); ?>
+    <?php //comments_template(); ?>
     
     
     
