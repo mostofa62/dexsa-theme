@@ -14,7 +14,7 @@ get_header();
 	 <?php if ( have_posts() ) : ?>
      
      <div class="row clearfix">
- 		<div class="col-md-12 column page-header">
+ 		<div class="col-md-12 column">
 		<h1 class="page-title alert alert-warning"><?php printf( __( 'Search Results for: %s', 'dexsa' ), get_search_query() ); ?></h1>
  		</div>   
 	</div>

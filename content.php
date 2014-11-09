@@ -21,7 +21,7 @@
 <h1>
 <a class="btn btn-success" href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>  
 </h1>
-<p class="bg-success">
+<p class="alert-warning">
 <?php the_excerpt(); ?>
 </p>
 <?php elseif(is_page()): ?>

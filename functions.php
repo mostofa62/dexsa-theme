@@ -30,7 +30,7 @@ $args = array(
 add_theme_support( 'custom-header', $args );
 
 add_theme_support( 'custom-background', apply_filters( 'twentyfourteen_custom_background_args', array(
-		'default-color' => 'f5f5f5',
+		'default-color' => 'B389BA',
 	) ) );
 
 
@@ -57,6 +57,30 @@ wp_enqueue_script( 'scripts' );
 
 add_action( 'wp_enqueue_scripts', 'dexsa_script' );
 /* end all css and java-script */
+
+/* site title */
+function dexsa_wp_title( $title, $sep ) {
+	global $paged, $page;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the site name.
+	$title .= get_bloginfo( 'name', 'display' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		$title = "$title $sep $site_description";
+
+	// Add a page number if necessary.
+	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() )
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'dexsa' ), max( $paged, $page ) );
+
+	return $title;
+}
+add_filter( 'wp_title', 'dexsa_wp_title', 10, 2 );
+/* end site title */
 
 /* dexa custom search form */
 function dexsa_search_form()

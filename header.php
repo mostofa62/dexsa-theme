@@ -54,30 +54,31 @@ defined('ABSPATH') or die("No script kiddies please!");
 		<span class="icon-bar"></span><span class="icon-bar">
 		</span><span class="icon-bar"></span>
 		</button> 
-		<a class="navbar-brand" href=" <?php echo esc_url( home_url( '/' ) ); ?> "><?php bloginfo( 'name' ); ?></a>
+		<!--<a class="navbar-brand" href=" <?php echo esc_url( home_url( '/' ) ); ?> "><?php bloginfo( 'name' ); ?></a>-->
 		</div>
 
 		<!--end collapse button-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">		
 		<?php 
-		
+		require get_template_directory() . '/inc/walker.php';
 		 $defaults = array(
 			'theme_location'  => 'primary',
-			'menu'            => '',
-			'container'       => '',
-			'container_class' => '',
-			'container_id'    => '',
+			'menu'            => 'primary',
+			'depth'             => 2,
+			//'container'       => 'div',
+			//'container_class' => 'collapse navbar-collapse',
+			//'container_id'    => 'bs-example-navbar-collapse-1',
 			'menu_class'      => 'nav navbar-nav navbar-left',
 			'menu_id'         => 'bs-example-navbar-collapse-1',
-			'echo'            => true,
-			'fallback_cb'     => 'wp_page_menu',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '',
-			'link_after'      => '',
-			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-			'depth'           => 0,
-			'walker'          => ''
+			//'echo'            => true,
+			'fallback_cb'     => 'wp_bootstrap_navwalker::fallback',
+			//'before'          => '',
+			//'after'           => '',
+			//'link_before'     => '',
+			//'link_after'      => '',
+			//'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			//'depth'           => 0,
+			'walker'          => new Dexsa_Nav_Menu()
 		);
 		wp_nav_menu( $defaults );
 		
