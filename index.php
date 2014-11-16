@@ -3,14 +3,7 @@ defined('ABSPATH') or die("No script kiddies please!");
 get_header();
 ?>
 <div class="container">
-    <!--slide-->
-    <div class="row clearfix" style="margin-top:-20px; padding-bottom:10px;">
-    <div class="col-md-12 column">
-    <?php do_action('insert_bootstrapslider'); ?>
     
-    </div>
-    </div>
-    <!--end slider-->
 	<div class="row clearfix">
 	<!--content side-->
 	<div class="col-md-9 column">
