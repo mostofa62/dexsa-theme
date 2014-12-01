@@ -6,8 +6,8 @@ class Dexsa_Recent_Post_widget extends WP_Widget_Recent_Posts {
 private $_maxlenght=10;
 public function __construct() {
 	
+	//add_action( 'admin_print_scripts', array( &$this, 'admin_script' ) );
 	
-	add_action( 'wp_ajax_my_action', array(&$this,'my_action_callback'));
 	
 		parent::__construct( 'dexsa_recent_post_widget', __( 'Dexsa Recent Posts', 'dexsa' ), array(
 			'classname'   => 'dexsa_recent_post_widget',
@@ -19,7 +19,12 @@ public function __construct() {
 		
 }
 
-
+function admin_script()
+{
+echo "<script type='text/javascript'>\n";
+	echo 'alert("hello")';
+	echo "\n</script>";
+}
 	
 function widget($args, $instance) {
 	
@@ -31,10 +36,9 @@ $title = apply_filters('widget_title', empty($instance['title']) ? __('Recent Po
 if( empty( $instance['number'] ) || ! $number = absint( $instance['number'] ) )
 $number = 10;
 
-if( empty( $instance['category'] ) ||  $instance['category']==-1 )
+if( empty( $instance['category'] ) ||  $category=$instance['category']==-1 )
 $category='';
-else
-$category= $instance['category'];
+
 
 $r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true ,'category__in' => $category) ) );
 
@@ -119,9 +123,7 @@ function form($instance) {
 	<!--//--><![CDATA[//><!--
 	jQuery(document).ready(function($) {
 
-		//alert("<?php echo $this->get_field_id('number'); ?>");
-		var number=$("#<?php echo $this->get_field_id('number'); ?>");
-		$("#<?php echo $this->get_field_id('category'); ?>").on("change",function(){
+		$("#<?php echo $this->get_field_id('category'); ?>").live("change",function(){
 		
 		
 		var data={
@@ -132,16 +134,15 @@ function form($instance) {
 		
 		
 		$.post(ajaxurl, data, function(response) {
-		var len= response >= <?php echo $this->_maxlenght; ?>?<?php echo $this->_maxlenght; ?>:response;			
-		//alert(number);
-		//$("#<?php echo $this->get_field_id('number'); ?>").empty();	
-		number.empty();			
+		var len= response >= <?php echo $this->_maxlenght; ?>?<?php echo $this->_maxlenght; ?>:response;
+			
+		$("#<?php echo $this->get_field_id('number'); ?>").empty();				
 		for(var i=1;i<=len;i++)
-		number.append($('<option>', {value:i, text:i}));
-		//$("#<?php echo $this->get_field_id('number'); ?>").append($('<option>', {value:i, text:i}));
+		$("#<?php echo $this->get_field_id('number'); ?>").append($('<option>', {value:i, text:i}));
 		
 		
-		});	
+		});
+		
 		
 		});
 										
@@ -172,22 +173,7 @@ function update($new_instance, $old_instance) {
 }
 
 
-function my_action_callback(){
 
-	$catagory_id = $_POST['catagory_id']=='-1'?'':intval( $_POST['catagory_id'] );		
-	$args = array(
-  	'cat' =>$catagory_id,
-  	'post_type' => 'post',
-	'post_status' => 'publish',
-	);
-	$the_query = new WP_Query( $args );
-	$length=$the_query->found_posts;
-	echo $length;
-	       
-	die(); 
-
-
-}
 
 
 }

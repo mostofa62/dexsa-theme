@@ -204,4 +204,22 @@ function dexsa_theme_register_required_plugins() {
 
 
 /* end register required plugin */
+/* ajax message processing */
 
+//add_action( 'wp_ajax_my_action', 'my_action_callback' );
+
+function my_action_callback() {
+	//global $wpdb; // this is how you get access to the database
+
+	$catagory_id = intval( $_POST['catagory_id'] );		
+	$args = array(
+  	'cat' =>$catagory_id,
+  	'post_type' => 'post',
+	//'post_status' => 'publish',
+	);
+	$the_query = new WP_Query( $args );
+	$length=$the_query->found_posts;
+	echo $length;       
+	die(); 
+}
+/* end ajax message processing */
